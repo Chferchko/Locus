@@ -355,7 +355,7 @@ body {
 }
 @media (max-width: 1612px) {
   .projects__content > div:first-child::after {
-    bottom: calc(-30px + -36 * ((100vw - 320px) / 1292));
+    bottom: calc(-25px + -41 * ((100vw - 320px) / 1292));
   }
 }
 
@@ -690,6 +690,9 @@ body {
   }
   .flexbox__button a {
     display: block;
+  }
+  .projects__content > div:first-child::after, .projects__content > div:first-child::before {
+    height: 2px;
   }
   .testimonial__statistic {
     flex-direction: column;

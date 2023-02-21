@@ -325,7 +325,7 @@ $maxWidthContainer: 1612;
 				@include adapt-value("bottom", -51, -15, 1);
 			}
 			&::after {
-				@include adapt-value("bottom", -66, -30, 1);
+				@include adapt-value("bottom", -66, -25, 1);
 			}
 		}
 	}
@@ -752,6 +752,16 @@ $maxWidthContainer: 1612;
 		&__button {
 			a {
 				display: block;
+			}
+		}
+	}
+	.projects {
+		&__content > div {
+			&:first-child {
+				&::after,
+				&::before {
+					height: 2px;
+				}
 			}
 		}
 	}
