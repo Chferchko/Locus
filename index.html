@@ -156,15 +156,44 @@
 		</main>
 		<footer class="footer">
 			<div class="footer__container">
-				футер
+				<div class="footer__content flexbox flexbox_horizontal">
+					<div class="flexbox__item">
+						<div class="flexbox__content">
+							<h2 class="flexbox__title">Contact Us</h2>
+							<p class="flexbox__text">Have any questions? Want help before getting started?</p>
+						</div>
+					</div>
+					<div class="flexbox__item">
+						<form action="#" method="get" enctype="" class="footer__form form">
+							<div class="form__item">
+								<h4 class="form__item-title">Full name</h4>
+								<input type="text" name="fullname" required class="form__item-name">
+							</div>						
+							<div class="form__item">
+								<h4 class="form__item-title">Email address</h4>
+								<input type="email" name="email" required class="form__item-mail">
+							</div>						
+							<div class="form__item">
+								<h4 class="form__item-title">Description</h4>
+								<textarea name="description" rows="1" class="form__item-description"></textarea>
+							</div>
+							<div class="form__button-wrapper">
+								<button type="submit" class="form__button">Send now</button>
+							</div>					
+						</form>
+					</div>
+				</div>
 			</div>
 		</footer>
 	</div>
 
-	<!-- <script src="/js/jquery.min.js"></script> -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/autosize@4.0.2/dist/autosize.min.js"></script>
 
+	<script src="/js/textarea-autoheight.js"></script>
 	<!-- <script src="/js/header-scrolled.js"></script> -->
 	<!-- <script src="/js/menu-burger.js"></script> -->
 	<!-- <script src="/js/scroll-btn.js"></script> -->
+	
 </body>
 </html>

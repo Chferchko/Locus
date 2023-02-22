@@ -212,7 +212,7 @@ $maxWidthContainer: 1612;
 .page {
 	padding: 250px 0px 0px 0px;
 }
-
+/* ----------------- section 1 */
 .intro {
 	padding: 20px 0 60px;
 	.flexbox {
@@ -229,7 +229,7 @@ $maxWidthContainer: 1612;
 		}
 	}
 }
-
+/* ----------------- section 2 */
 .works {
 	padding: 60px 0;
 	&__container {
@@ -304,7 +304,7 @@ $maxWidthContainer: 1612;
 		letter-spacing: 5.5px;
 	}
 }
-
+/* ----------------- section 3 */
 .projects {
 	padding: 60px 0 125px;
 	&__content > div {
@@ -388,7 +388,7 @@ $maxWidthContainer: 1612;
 		}
 	}
 }
-
+/* ----------------- section 4 */
 .testimonial {
 	padding: 125px 0 120px;
 	&__container {
@@ -502,6 +502,92 @@ $maxWidthContainer: 1612;
 }
 
 /* ================================== Footer =================================== */
+
+.footer {
+	padding: 120px 0;
+	.flexbox {
+		align-items: stretch;
+		&_horizontal {
+		}
+
+		&__item {
+			&:first-child {
+				flex: 1 1 31.2%;
+				padding: 0px 20px 0px 0px;
+			}
+			&:last-child {
+				flex: 1 1 68.8%;
+			}
+		}
+
+		&__content {
+			max-width: 400px;
+			&::after {
+				content: "";
+				display: block;
+				margin: 37px 0px 0px 0px;
+				width: 34%;
+				height: 5px;
+				background-color: #58a9a5;
+				box-shadow: 0px 15px 0px 0px #58a9a5;
+			}
+		}
+
+		&__title {
+			margin: 0px 0px 10px 0px;
+		}
+	}
+
+	.form {
+		border: 1px solid #486958;
+		padding: 57px 55px 35px;
+		&__item {
+			display: flex;
+			flex-wrap: wrap;
+			column-gap: 35px;
+			padding: 0px 0px 25px 0px;
+			&:not(:nth-child(3)) {
+				border-bottom: 1px solid#58A9A5;
+				margin: 0px 0px 47px 0px;
+			}
+			&:nth-child(3) {
+				margin: 0px 0px 20px 0px;
+			}
+			& > * {
+				&:last-child {
+					flex: 1 1 auto;
+					min-height: 38px;
+					font-size: 25px;
+				}
+			}
+		}
+		&__item-title {
+			font-weight: 500;
+			font-size: 25px;
+			line-height: 150%;
+			color: #486958;
+		}
+
+		&__item-description {
+			resize: none;
+		}
+		&__button-wrapper {
+			text-align: right;
+		}
+		&__button {
+			font-weight: 700;
+			font-size: 25px;
+			color: #ffffff;
+			background: #58a9a5;
+			padding: 21px 88px;
+			border-radius: 20px 20px 20px 0px;
+			transition: background 0.3s;
+			&:hover {
+				background: #00a0a5;
+			}
+		}
+	}
+}
 
 // ================================== Брейкпоинтов ==================================
 
@@ -617,6 +703,12 @@ $maxWidthContainer: 1612;
 			}
 		}
 	}
+	.footer {
+		padding: 30px 0;
+		.form {
+			padding: 35px;
+		}
+	}
 }
 
 // Large devices (desktops, 992px and up)
@@ -718,6 +810,25 @@ $maxWidthContainer: 1612;
 			text-align: justify;
 		}
 	}
+	.footer {
+		.flexbox {
+			flex-direction: column;
+			&__content {
+				max-width: 100%;
+				&::after {
+					display: none;
+				}
+			}
+			&__text {
+				text-align: center;
+			}
+			&__item {
+				&:first-child {
+					padding: 0;
+				}
+			}
+		}
+	}
 }
 
 // Medium devices (tablets, 768px and up)
@@ -792,6 +903,30 @@ $maxWidthContainer: 1612;
 			}
 			&::after {
 				margin: 20px 0px 0px 0px;
+			}
+		}
+	}
+	.footer {
+		.form {
+			padding: 15px;
+			&__item {
+				padding: 0;
+				&:not(:nth-child(3)) {
+					margin: 0px 0px 20px 0px;
+				}
+				& > * {
+					&:last-child {
+						width: 100%;
+						font-size: 20px;
+					}
+				}
+			}
+			&__item-title {
+				font-size: 20px;
+			}
+			&__button {
+				width: 100%;
+				padding: 21px 0;
 			}
 		}
 	}

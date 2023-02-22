@@ -252,6 +252,7 @@ body {
   padding: 250px 0px 0px 0px;
 }
 
+/* ----------------- section 1 */
 .intro {
   padding: 20px 0 60px;
 }
@@ -261,6 +262,7 @@ body {
 .intro .flexbox__content {
   max-width: 743px;
 }
+/* ----------------- section 2 */
 .works {
   padding: 60px 0;
 }
@@ -321,6 +323,7 @@ body {
   letter-spacing: 5.5px;
 }
 
+/* ----------------- section 3 */
 .projects {
   padding: 60px 0 125px;
 }
@@ -411,6 +414,7 @@ body {
   border-radius: 0 0 50% 50%;
 }
 
+/* ----------------- section 4 */
 .testimonial {
   padding: 125px 0 120px;
 }
@@ -506,6 +510,82 @@ body {
 }
 
 /* ================================== Footer =================================== */
+.footer {
+  padding: 120px 0;
+}
+.footer .flexbox {
+  align-items: stretch;
+}
+.footer .flexbox__item:first-child {
+  flex: 1 1 31.2%;
+  padding: 0px 20px 0px 0px;
+}
+.footer .flexbox__item:last-child {
+  flex: 1 1 68.8%;
+}
+.footer .flexbox__content {
+  max-width: 400px;
+}
+.footer .flexbox__content::after {
+  content: "";
+  display: block;
+  margin: 37px 0px 0px 0px;
+  width: 34%;
+  height: 5px;
+  background-color: #58a9a5;
+  box-shadow: 0px 15px 0px 0px #58a9a5;
+}
+.footer .flexbox__title {
+  margin: 0px 0px 10px 0px;
+}
+.footer .form {
+  border: 1px solid #486958;
+  padding: 57px 55px 35px;
+}
+.footer .form__item {
+  display: flex;
+  flex-wrap: wrap;
+  -moz-column-gap: 35px;
+       column-gap: 35px;
+  padding: 0px 0px 25px 0px;
+}
+.footer .form__item:not(:nth-child(3)) {
+  border-bottom: 1px solid #58A9A5;
+  margin: 0px 0px 47px 0px;
+}
+.footer .form__item:nth-child(3) {
+  margin: 0px 0px 20px 0px;
+}
+.footer .form__item > *:last-child {
+  flex: 1 1 auto;
+  min-height: 38px;
+  font-size: 25px;
+}
+.footer .form__item-title {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 150%;
+  color: #486958;
+}
+.footer .form__item-description {
+  resize: none;
+}
+.footer .form__button-wrapper {
+  text-align: right;
+}
+.footer .form__button {
+  font-weight: 700;
+  font-size: 25px;
+  color: #ffffff;
+  background: #58a9a5;
+  padding: 21px 88px;
+  border-radius: 20px 20px 20px 0px;
+  transition: background 0.3s;
+}
+.footer .form__button:hover {
+  background: #00a0a5;
+}
+
 @media (max-width: 1440px) {
   .intro {
     padding: 20px 0 30px;
@@ -588,6 +668,12 @@ body {
     content: "";
     left: -25px;
   }
+  .footer {
+    padding: 30px 0;
+  }
+  .footer .form {
+    padding: 35px;
+  }
 }
 @media (max-width: 992px) {
   .flexbox__item {
@@ -661,6 +747,21 @@ body {
   .testimonial__text {
     text-align: justify;
   }
+  .footer .flexbox {
+    flex-direction: column;
+  }
+  .footer .flexbox__content {
+    max-width: 100%;
+  }
+  .footer .flexbox__content::after {
+    display: none;
+  }
+  .footer .flexbox__text {
+    text-align: center;
+  }
+  .footer .flexbox__item:first-child {
+    padding: 0;
+  }
 }
 @media (max-width: 768px) {
   .flex-item {
@@ -721,5 +822,25 @@ body {
   }
   .testimonial__text::after {
     margin: 20px 0px 0px 0px;
+  }
+  .footer .form {
+    padding: 15px;
+  }
+  .footer .form__item {
+    padding: 0;
+  }
+  .footer .form__item:not(:nth-child(3)) {
+    margin: 0px 0px 20px 0px;
+  }
+  .footer .form__item > *:last-child {
+    width: 100%;
+    font-size: 20px;
+  }
+  .footer .form__item-title {
+    font-size: 20px;
+  }
+  .footer .form__button {
+    width: 100%;
+    padding: 21px 0;
   }
 }
