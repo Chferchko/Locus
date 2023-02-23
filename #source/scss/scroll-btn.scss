@@ -1,27 +1,24 @@
-%nav-arrow-left {
+%nav-arrow {
 	position: absolute;
 	width: 30%;
 	height: 1px;
-	background-color: #4d4959;
-	left: 49%;
-	transform: rotate(-30deg) translateX(-100%);
+	background-color: #58a9a5;
 	opacity: 0;
 	animation-name: arrow-fx;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
 }
 
+%nav-arrow-left {
+	@extend %nav-arrow;
+	left: 49%;
+	transform: rotate(-30deg) translateX(-100%);
+}
+
 %nav-arrow-right {
-	position: absolute;
-	width: 30%;
-	height: 1px;
-	background-color: #4d4959;
+	@extend %nav-arrow;
 	right: 49%;
 	transform: rotate(-150deg) translateX(-100%);
-	opacity: 0;
-	animation-name: arrow-fx;
-	animation-duration: 2s;
-	animation-iteration-count: infinite;
 }
 
 @keyframes arrow-fx {
@@ -44,7 +41,6 @@
 	z-index: 99;
 	width: 40px;
 	height: 40px;
-	border: 1px solid #4d4959;
 	border-radius: 50%;
 	box-shadow: 0px 5px 10px 0px #00000034;
 	transition: transform 0.5s;
