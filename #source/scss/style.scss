@@ -98,7 +98,8 @@ $maxWidthContainer: 1612;
 /* Адаптивное изображение */
 %adapt-img {
 	position: relative;
-	img {
+	img,
+	video {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -371,6 +372,16 @@ $maxWidthContainer: 1612;
 		@extend %adapt-img;
 		img {
 			border-radius: 10px 0px 0px 10px;
+			z-index: 1;
+		}
+		video {
+			border-radius: 10px 0px 0px 10px;
+			height: 0%;
+			z-index: 2;
+			transition: height 0.5s;
+			&.init {
+				height: 100%;
+			}
 		}
 	}
 
@@ -382,6 +393,69 @@ $maxWidthContainer: 1612;
 		color: #486958;
 		background: #ccf0e6;
 		border-radius: 0px 10px 10px 0px;
+		position: relative;
+	}
+
+	&__button {
+		position: absolute;
+		top: 56%;
+		left: 0;
+		width: 5.21vw;
+		height: 5.21vw;
+		z-index: 10;
+		border-radius: 50%;
+		background-color: #ffffff;
+		transform: translateX(-50%);
+		cursor: pointer;
+		&::before {
+			content: "";
+			position: absolute;
+			top: -14%;
+			left: -14%;
+			width: 128%;
+			height: 128%;
+			z-index: 9;
+			border-radius: 50%;
+			background: rgba(255, 255, 255, 0.4);
+			transform: scale(1);
+			opacity: 1;
+			visibility: visible;
+			transition: transform 0.5s, opacity 0.5s, visibility 0.5s;
+		}
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-30%, -50%);
+			border-left: 1.406vw solid #fec62d;
+			border-top: 1.08vw solid transparent;
+			border-bottom: 1.08vw solid transparent;
+		}
+		&.init {
+			&::before {
+				transform: scale(2);
+				opacity: 0;
+				visibility: hidden;
+			}
+			&::after {
+				width: 26.4%;
+				height: 35.2%;
+				transform: translate(-50%, -50%);
+				border-left: 0.47vw solid #fec62d;
+				border-right: 0.47vw solid #fec62d;
+				border-top: none;
+				border-bottom: none;
+			}
+			&.close {
+				&::after {
+					width: 60%;
+					height: 60%;
+					border: none;
+					background: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg width='800px' height='800px' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fec62d' d='M195.2 195.2a64 64 0 0 1 90.496 0L512 421.504 738.304 195.2a64 64 0 0 1 90.496 90.496L602.496 512 828.8 738.304a64 64 0 0 1-90.496 90.496L512 602.496 285.696 828.8a64 64 0 0 1-90.496-90.496L421.504 512 195.2 285.696a64 64 0 0 1 0-90.496z'/%3E%3C/svg%3E") center / cover no-repeat;
+				}
+			}
+		}
 	}
 
 	&__text {
@@ -684,6 +758,19 @@ $maxWidthContainer: 1612;
 
 // Extra large devices (large desktops, 1200px and up)
 // @media (max-width: 1200px) {...}
+@media (min-width: 1920px) {
+	.flex-item {
+		&__button {
+			width: 100px;
+			height: 100px;
+			&::after {
+				border-left: 27px solid #fec62d;
+				border-top: 18px solid transparent;
+				border-bottom: 18px solid transparent;
+			}
+		}
+	}
+}
 
 @media (max-width: 1440px) {
 	.intro {
@@ -734,7 +821,7 @@ $maxWidthContainer: 1612;
 	}
 	.flex-item {
 		&__content {
-			padding: 70px 25px;
+			padding: 70px 3.5vw;
 		}
 		&__text {
 			text-align: justify;
@@ -826,7 +913,11 @@ $maxWidthContainer: 1612;
 	}
 	.flex-item {
 		&__content {
-			padding: 40px 25px;
+			padding: 4.5vw;
+		}
+		&__button {
+			width: 6.21vw;
+			height: 6.21vw;
 		}
 	}
 	.intro {
@@ -983,8 +1074,23 @@ $maxWidthContainer: 1612;
 			padding: 100px 20px 20px;
 			overflow: scroll;
 			transition: right 0.5s;
+			&::before {
+				content: "";
+				position: fixed;
+				top: 0;
+				right: -110%;
+				width: 320px;
+				height: 100px;
+				background: #ccf0e6;
+				z-index: 99;
+				transition: right 0.5s;
+			}
 			&.active {
 				right: 0;
+				&::before {
+					content: "";
+					right: 0;
+				}
 			}
 		}
 		&__close-button {
@@ -993,7 +1099,7 @@ $maxWidthContainer: 1612;
 			height: 35px;
 			top: 20px;
 			right: -110%;
-			z-index: 99;
+			z-index: 100;
 			background-image: url("data:image/svg+xml,%0A%3Csvg width='35px' height='35px' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23000000'%3E%3Cline x1='16' y1='16' x2='48' y2='48'/%3E%3Cline x1='48' y1='16' x2='16' y2='48'/%3E%3C/svg%3E");
 			transition: right 0.5s;
 			cursor: pointer;
@@ -1028,8 +1134,27 @@ $maxWidthContainer: 1612;
 		}
 		&__image {
 			padding: 0 0 83% 0;
-			img {
+			img,
+			video {
 				border-radius: 0px 0px 10px 10px;
+			}
+		}
+		&__button {
+			width: 11.71vw;
+			height: 11.71vw;
+			top: 100%;
+			transform: translate(-50%, -50%);
+			left: 75%;
+			&::after {
+				border-left: 2.906vw solid #fec62d;
+				border-top: 2.18vw solid transparent;
+				border-bottom: 2.18vw solid transparent;
+			}
+			&.init {
+				&::after {
+					border-left: 1vw solid #fec62d;
+					border-right: 1vw solid #fec62d;
+				}
 			}
 		}
 	}
