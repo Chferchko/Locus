@@ -20,19 +20,11 @@ function removeButtonCloseVisualClass() {
 };
 
 function toggleButtonCloseVisualClass() {
-	if (video.paused) {
-		addButtonCloseVisualClass();
-	} else {
-		removeButtonCloseVisualClass();
-	}
+	video.paused ?	addButtonCloseVisualClass() :	removeButtonCloseVisualClass();
 };
 
 function reloadVideo() {
 	video.load();
-};
-
-function reloadVideoWithDelay(time) {
-	setTimeout(reloadVideo, 0);
 };
 
 function playVideo() {
@@ -44,11 +36,7 @@ function pauseVideo() {
 };
 
 function toggleVideoStatus() {
-	if (video.paused && isVideoOpen()) {
-		playVideo()
-	} else {
-		reloadVideoWithDelay(0);
-	}
+	video.paused && isVideoOpen() ? playVideo() : reloadVideo();
 };
 
 function toggleVideoStatusAfterTime(time) {
