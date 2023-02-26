@@ -40,7 +40,7 @@ function toggleVideoStatus() {
 };
 
 function toggleVideoStatusAfterTime(time) {
-	setTimeout(toggleVideoStatus, time)
+	setTimeout(toggleVideoStatus, time);
 };
 
 function onButtonClickEventHandler() {
