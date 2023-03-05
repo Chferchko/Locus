@@ -93,7 +93,7 @@ h6 {
 .scroll-btn__body span:nth-child(3)::before, .scroll-btn__body span:nth-child(2)::before, .scroll-btn__body span:nth-child(1)::before, .scroll-btn__body span:nth-child(3)::after, .scroll-btn__body span:nth-child(2)::after, .scroll-btn__body span:nth-child(1)::after {
   position: absolute;
   width: 30%;
-  height: 1px;
+  height: 2px;
   background-color: #58a9a5;
   opacity: 0;
   animation-name: arrow-fx;
@@ -131,7 +131,7 @@ h6 {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.2039215686);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.6235294118);
   transition: transform 0.5s;
   cursor: pointer;
 }
@@ -345,6 +345,42 @@ body {
   padding: var(--defining-padding);
 }
 
+/* ================================== Keyframes ================================== */
+@keyframes shake {
+  0% {
+    transform: translate(2px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(0px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(2px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(2px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
 /* ================================== Header ================================== */
 .header {
   position: absolute;
@@ -428,8 +464,6 @@ body {
 /* ----------------- section 1 */
 .intro {
   padding: 20px 0 60px;
-  position: relative;
-  z-index: 4;
 }
 .intro .flexbox__item:not(:last-child) {
   padding: 0px 20px 0px 0px;
@@ -485,31 +519,29 @@ body {
 }
 .flex-item__image {
   flex: 1 0 66.666%;
+  perspective: 1400px;
+  perspective-origin: 50%;
+  z-index: 2;
 }
-.flex-item__image::before {
-  position: absolute;
-  top: -100%;
-  left: 0;
-  display: block;
-  content: "";
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-  background-color: white;
-}
-.flex-item__image img {
-  border-radius: 10px 0px 0px 10px;
-  z-index: 1;
-}
+.flex-item__image img,
 .flex-item__image video {
   border-radius: 10px 0px 0px 10px;
-  height: 100%;
-  top: -100%;
-  z-index: 2;
-  transition: top 0.5s;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: transform 0.5s;
 }
-.flex-item__image video.init {
-  top: 0;
+.flex-item__image img {
+  transform: rotateX(0deg);
+}
+.flex-item__image video {
+  height: 100%;
+  transform: rotateX(180deg);
+}
+.flex-item__image.init img {
+  transform: rotateX(-180deg);
+}
+.flex-item__image.init video {
+  transform: rotateX(0deg);
 }
 .flex-item__content {
   flex: 1 0 33.333%;
@@ -520,17 +552,18 @@ body {
   background: #ccf0e6;
   border-radius: 0px 10px 10px 0px;
   position: relative;
+  z-index: 1;
 }
 .flex-item__button {
   position: absolute;
   top: 56%;
-  left: 0;
+  right: 0;
   width: 5.21vw;
   height: 5.21vw;
   z-index: 10;
   border-radius: 50%;
   background-color: #ffffff;
-  transform: translateX(-50%);
+  transform: translateX(50%);
   cursor: pointer;
 }
 .flex-item__button::before {
@@ -1054,13 +1087,20 @@ body {
   .header__button-icon {
     display: block;
   }
+  .header__button-icon:hover {
+    animation-name: shake;
+    animation-duration: 1s;
+    transform-origin: 50% 50%;
+    animation-iteration-count: 1s;
+    animation-timing-function: linear;
+  }
   .header__item:nth-child(2) {
     display: flex;
     justify-content: end;
   }
   .header__menu-burger {
     width: 50px;
-    height: 35px;
+    height: 37px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1080,6 +1120,13 @@ body {
     background-color: #58a9a5;
     border-radius: 15px;
   }
+  .header__menu-burger:hover {
+    animation-name: shake;
+    animation-duration: 1s;
+    transform-origin: 50% 50%;
+    animation-iteration-count: 1s;
+    animation-timing-function: linear;
+  }
   .header__menu-body {
     transition: background 0.5s;
   }
@@ -1096,13 +1143,13 @@ body {
     position: fixed;
     z-index: 98;
     top: 0;
-    right: -110%;
+    right: -150%;
     display: block;
     text-align: center;
     background: #ccf0e6;
     height: 100%;
-    width: 320px;
-    box-shadow: 0px 10px 15px 2px #000;
+    width: 45%;
+    box-shadow: 0px 0px 70px 90px #ccf0e6;
     padding: 100px 20px 20px;
     overflow: scroll;
     transition: right 0.5s;
@@ -1111,8 +1158,8 @@ body {
     content: "";
     position: fixed;
     top: 0;
-    right: -110%;
-    width: 320px;
+    right: -150%;
+    width: 45%;
     height: 100px;
     background: #ccf0e6;
     z-index: 99;
@@ -1157,8 +1204,6 @@ body {
   .flex-item__content {
     padding: 25px;
     border-radius: 10px 10px 0px 0px;
-    position: relative;
-    z-index: 4;
   }
   .flex-item__image {
     padding: 0 0 83% 0;
@@ -1170,7 +1215,7 @@ body {
   .flex-item__button {
     width: 11.71vw;
     height: 11.71vw;
-    top: 100%;
+    top: 0;
     transform: translate(-50%, -50%);
     left: 75%;
   }
@@ -1256,5 +1301,11 @@ body {
 @media (max-width: 576px) {
   .header__logo-name {
     display: none;
+  }
+  .header__menu-list {
+    width: 100%;
+  }
+  .header__menu-list::before {
+    width: 100%;
   }
 }

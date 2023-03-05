@@ -1,7 +1,7 @@
 %nav-arrow {
 	position: absolute;
 	width: 30%;
-	height: 1px;
+	height: 2px;
 	background-color: #58a9a5;
 	opacity: 0;
 	animation-name: arrow-fx;
@@ -42,7 +42,7 @@
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	box-shadow: 0px 5px 10px 0px #00000034;
+	box-shadow: 0px 5px 10px 0px #0000009f;
 	transition: transform 0.5s;
 	cursor: pointer;
 	&__body {

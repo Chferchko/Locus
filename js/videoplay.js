@@ -1,10 +1,11 @@
 const videoButton = document.getElementById('video-button');
 const video = document.getElementById('works-video');
+const visualBlock = document.getElementById('works-visual-block');
 
-let isVideoOpen = () => video.classList.contains('init');
+let isVideoOpen = () => visualBlock.classList.contains('init');
 
-function toggleVideoBlockVisualClass() {
-	video.classList.toggle('init');
+function toggleVisualClass() {
+	visualBlock.classList.toggle('init');
 };
 
 function toggleButtonVisualClass() {
@@ -45,7 +46,7 @@ function toggleVideoStatusAfterTime(time) {
 
 function onButtonClickEventHandler() {
 	toggleButtonVisualClass();
-	toggleVideoBlockVisualClass();
+	toggleVisualClass();
 	toggleVideoStatusAfterTime(500);
 	removeButtonCloseVisualClass();
 };
