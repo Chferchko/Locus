@@ -898,6 +898,10 @@ body {
     border-top: 18px solid transparent;
     border-bottom: 18px solid transparent;
   }
+  .flex-item__button.init::after {
+    border-left: 10px solid #fec62d;
+    border-right: 10px solid #fec62d;
+  }
 }
 @media (max-width: 1440px) {
   .intro {
