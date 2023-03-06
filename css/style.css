@@ -187,6 +187,10 @@ h6 {
 }
 
 /* ================================== Технические стили ================================== */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
   font-family: Poppins;
 }
